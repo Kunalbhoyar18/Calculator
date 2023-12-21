@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    <style>
+
+        img {
+            position: absolute;
+            z-index: -1;
+            }
+
+        #calculator {
+            width: 350px;  
+            height: 630px;  
+            margin: auto;   
+            padding: 20px;   
+            position: absolute;
+            top: 10px;
+            left: 1130px;
+            }
+
+        input {
+            width: 75%;
+            padding: 30px;
+            border: 2px solid goldenrod; 
+            color:white;
+            background-color: black;  
+            border-radius: 10px;  
+            margin: auto;  
+            margin-bottom: 10px;
+            font-size: 20px;
+            box-sizing: border-box;
+            }
+
+        button {
+            width: 15%;
+            padding: 10px;
+            margin: 5px;
+            font-size: 30px ;
+            background-color:ivory;  
+            color: BLACK;  
+            border: 1px solid black;  
+            border-radius: 5px; 
+            }
+
+        button:active {
+
+            background-color: darkcyan;
+
+            } 
+
+        #A {
+            width: 35%;
+            padding: 5px;
+            margin-bottom: 10px;
+            font-size: 30px;
+            box-sizing: border-box;
+            background-color: black;  
+            color: white;  
+            border:3px solid aqua;  
+            border-radius: 10px;  
+            margin: 5px;  
+            font-size: 30px;  
+            text-align: center;
+            }
+
+        #A:active {
+
+            background-color: green;
+
+            } 
+        
+        #B {
+            width: 15%;
+            padding: 10px;
+            margin: 5px;
+            font-size: 30px;
+            background-color:yellow;  
+            color: black;  
+            border: 2px solid black;  
+            border-radius: 10px; 
+            }
+
+        #B:active {
+            
+            background-color: grey;
+            
+            } 
+
+        
+        #C {
+            width: 15%;
+            padding: 10px;
+            margin: 5px;
+            font-size: 30px ;
+            background-color:yellow;  
+            color: black;  
+            border: 2px solid black;  
+            border-radius: 10px; 
+            }
+
+
+        #C:active {
+
+            background-color: red;
+
+        }
+    
+
+        #D {
+            width: 35%;
+            padding: 5px;
+            margin-bottom: 10px;
+            font-size: 30px;
+            box-sizing: border-box;
+            background-color: black;  
+            color: white;  
+            border:3px solid aqua;  
+            border-radius: 10px;  
+            margin: 5px;  
+            font-size: 30px;  
+            text-align: center;
+            }
+
+        #D:active {
+            
+            background-color: red;
+            
+            }
+    
+        h1 {
+            position: absolute;
+            top: 120px;
+            left: 680px;
+            color: black;
+            font-size:60px ;
+            font-weight: bolder;
+            font-family:courier;
+            }
+
+        h1:hover {
+           
+            color:green;
+
+        }
+
+        P {
+            position: absolute;
+            top: 550px;
+            left: 20px;
+            color: black;
+            font-size:20px ;
+            font-variant: small-caps;
+            }
+
+        h2 {
+            position: absolute;
+            top: 560px;
+            left: 120px;
+            color: black;
+            font-size:30px ;
+            font-variant: small-caps;
+            font-family: 'Courier New', Courier, monospace;
+            }
+        
+        h2:hover { 
+
+            color:goldenrod;
+            
+            }
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+    <img src="notebook-with-pencil-near-writing-supplies.jpg" alt="notebookAndpencil" width="1480" height="700">
+
+ 
+    <h1> CALCULATOR </h1>
+    
+    <P>&#128390 Project by:-</P>
+    
+    <h2><b>&bull;KUNAL BHOYAR&#128522 </b> </h2>
+
+
+    <div id="calculator">
+
+        <input type="text" id="display" readonly>
+        <br>
+
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
+        <button onclick="backspace()" id="C" ><-</button>
+        <br>
+
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+        <button onclick="appendToDisplay('-')" id="B">-</button>
+        <br>
+
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+        <button onclick="appendToDisplay('+')" id="B" >+</button>
+        <br>
+
+
+        <button onclick="appendToDisplay('.')" id="B" >.</button>
+        <button onclick="appendToDisplay('0')" >0</button>
+        <button onclick="appendToDisplay('/')" id="B" >/</button>
+        <button onclick="appendToDisplay('*')" id="B" >*</button>
+        <br>
+
+        <button onclick="clearDisplay()" id="D">ClrAll</button>
+        <button onclick="calculate()" id="A">=</button>
+
+    </div>
+
+
+    <script>
+
+        function appendToDisplay(value) {
+            document.getElementById('display').value += value;
+        }
+
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+
+        function backspace() {
+            let display = document.getElementById('display');
+            display.value = display.value.slice(0, -1);
+        }
+
+        function calculate() {
+            let display = document.getElementById('display');
+            try {
+                display.value = eval(display.value);
+            } catch (error) {
+                display.value = 'Error';
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
